@@ -15,7 +15,7 @@ class DashboardPage extends StatelessWidget {
         Positioned(
           top: -80.h,
           left: -130.w,
-          height: 400.h,
+          height: 500.h,
           child: Transform.rotate(
             angle: 22.6.r,
             child: SvgPicture.asset('assets/circles.svg'),

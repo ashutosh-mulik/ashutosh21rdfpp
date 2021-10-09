@@ -6,9 +6,9 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 
 class IntensitySlider extends StatelessWidget {
-  final RxDouble slide = 0.0.obs;
+  final RxDouble slide;
   final Function onChange;
-  IntensitySlider({Key? key, required this.onChange}) : super(key: key);
+  const IntensitySlider({Key? key, required this.onChange, required this.slide}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

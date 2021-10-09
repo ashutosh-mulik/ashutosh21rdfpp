@@ -1,10 +1,12 @@
+import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ColorsChooser extends StatelessWidget {
   final List colors;
-  const ColorsChooser({Key? key, required this.colors}) : super(key: key);
+  final Function onColorSelection;
+  const ColorsChooser({Key? key, required this.colors, required this.onColorSelection}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +39,22 @@ class ColorsChooser extends StatelessWidget {
             padding: EdgeInsets.zero,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return CircleAvatar(
-                backgroundColor: colors[index],
-                child: index == colors.length - 1 ? SvgPicture.asset('assets/add.svg') : Container(),
+              return TranslationAnimatedWidget.tween(
+                delay: const Duration(milliseconds: 800),
+                enabled: true,
+                translationDisabled: Offset((index * -30), 0),
+                translationEnabled: const Offset(0, 0),
+                child: GestureDetector(
+                  onTap: () {
+                    if (index != colors.length - 1) {
+                      onColorSelection(index);
+                    }
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: colors[index],
+                    child: index == colors.length - 1 ? SvgPicture.asset('assets/add.svg') : Container(),
+                  ),
+                ),
               );
             },
           ),

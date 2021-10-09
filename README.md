@@ -1,16 +1,34 @@
-# ashutosh21rdfpp
+# Touchstone Foundation Internship - Flutter Assignment.
+This is my submission for Flutter Assignment Round.
 
-A new Flutter project.
+## Project Structure
+```
+├───lib
+│   ├───controllers
+│   │   ├───screen_bedroom
+│   │   └───screen_one
+│   │       └───pages
+│   ├───screens
+│   │   ├───screen_bedroom
+│   │   └───screen_one
+│   │       └───pages
+│   ├───utils
+│   └───widgets
+````
 
-## Getting Started
+## Known Errors 
 
-This project is a starting point for a Flutter application.
+Assets.zip provided throught email contains an invalid svg file.
+That cause rendering error.
+```
+════════ Exception caught by SVG ═══════════════════════════════════════════════
+The following assertion was thrown while parsing AssetBundlePictureKey(bundle: PlatformAssetBundle#f9d81(), name: "assets/user.svg", colorFilter: null) in _getDefinitionPaint:
+Failed to find definition for url(#pattern)
 
-A few resources to get you started if this is your first Flutter project:
+This library only supports <defs> and xlink:href references that are defined ahead of their references.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This error can be caused when the desired definition is defined after the element referring to it (e.g. at the end of the file), or defined in another file.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This error is treated as non-fatal, but your SVG file will likely not render as intended
+════════════════════════════════════════════════════════════════════════════════
+````

@@ -1,0 +1,32 @@
+name: ashutosh21rdfpp
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get: ^4.3.8
+  animations: ^2.0.1
+  flutter_screenutil: ^5.0.0+2
+  flutter_svg: ^0.22.0
+  syncfusion_flutter_sliders: ^19.3.44
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/

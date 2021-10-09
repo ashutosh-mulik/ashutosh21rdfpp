@@ -19,7 +19,6 @@ dependencies:
   syncfusion_flutter_sliders: ^19.3.44
   animated_widgets: ^1.1.0
   delayed_display: ^2.0.0
-  animate_do: ^2.0.0
 
 dev_dependencies:
   flutter_test:

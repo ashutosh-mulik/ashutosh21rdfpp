@@ -42,6 +42,8 @@ class ColorsChooser extends StatelessWidget {
               return TranslationAnimatedWidget.tween(
                 delay: const Duration(milliseconds: 800),
                 enabled: true,
+
+                /// Overlap circles at start
                 translationDisabled: Offset((index * -30), 0),
                 translationEnabled: const Offset(0, 0),
                 child: GestureDetector(

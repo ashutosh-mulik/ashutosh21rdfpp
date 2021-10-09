@@ -2,17 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class BedroomScreenController extends GetxController {
-  RxInt selectColor = 0.obs;
-  late Color userSelectedColor;
+  late RxObjectMixin userSelectedLampColor;
+  var lightName = ['Main Light', 'Desk Light', 'Bed Light'];
+  var sceneNames = ['Birthday', 'Party', 'Relax', 'Fun'];
 
-  late RxObjectMixin userColor;
-
-  @override
-  void onInit() {
-    super.onInit();
-    userSelectedColor = colors[0];
-    userColor = colors[0].obs;
-  }
+  /// using same icons for both beacuse icons are not available
+  var lightIconsLight = ['assets/surface.svg', 'assets/furniture.svg', 'assets/bed_dark.svg'];
+  var lightIconsDark = ['assets/surface1.svg', 'assets/furniture.svg', 'assets/bed_dark.svg'];
 
   var colors = const [
     Color.fromRGBO(255, 155, 155, 1),
@@ -43,17 +39,12 @@ class BedroomScreenController extends GetxController {
     ]
   ];
 
-  var sceneNames = ['Birthday', 'Party', 'Relax', 'Fun'];
-
-  set setColor(index) => userColor.value = colors[index];
-  set setOpacity(percent) => userColor.value = userColor.value.withOpacity(percent / 100);
-
-  RxObjectMixin getColor(index) {
-    userColor.value = colors[index];
-    return userColor;
+  @override
+  void onInit() {
+    super.onInit();
+    userSelectedLampColor = colors[0].obs;
   }
 
-  RxObjectMixin changeOpacity(percent) {
-    return userColor.value.withOpacity(percent / 100).obs;
-  }
+  set setColor(index) => userSelectedLampColor.value = colors[index];
+  set setOpacity(percent) => userSelectedLampColor.value = userSelectedLampColor.value.withOpacity(percent / 100);
 }

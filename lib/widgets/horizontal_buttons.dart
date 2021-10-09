@@ -5,7 +5,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 class HorizontalButtons extends StatelessWidget {
   final Function onClick;
   final int activeIndex;
-  const HorizontalButtons({Key? key, required this.onClick, required this.activeIndex}) : super(key: key);
+  final List lightIcons;
+  final List darkIcons;
+  final List buttonNames;
+  const HorizontalButtons({
+    Key? key,
+    required this.onClick,
+    required this.activeIndex,
+    required this.darkIcons,
+    required this.lightIcons,
+    required this.buttonNames,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +25,9 @@ class HorizontalButtons extends StatelessWidget {
       children: [
         SizedBox(
           height: 45.h,
+          width: 338.w,
           child: ListView.separated(
+            physics: const ScrollPhysics(),
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(
                 height: 0.h,
@@ -40,9 +52,9 @@ class HorizontalButtons extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      activeIndex == index ? SvgPicture.asset('assets/surface.svg') : SvgPicture.asset('assets/surface1.svg'),
+                      activeIndex == index ? SvgPicture.asset(lightIcons[index]) : SvgPicture.asset(darkIcons[index]),
                       Text(
-                        'Main Light',
+                        buttonNames[index],
                         style: TextStyle(
                           color: activeIndex == index ? Colors.white : const Color.fromRGBO(9, 59, 123, 1),
                           fontSize: 16.sp,

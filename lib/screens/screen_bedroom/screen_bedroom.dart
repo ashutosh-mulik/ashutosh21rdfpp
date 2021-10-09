@@ -1,6 +1,6 @@
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:ashutosh21rdfpp/controllers/screen_bedroom/bedroom_screen_controller.dart';
-import 'package:ashutosh21rdfpp/widgets/colors_picker.dart';
+import 'package:ashutosh21rdfpp/widgets/colors_chooser.dart';
 import 'package:ashutosh21rdfpp/widgets/horizontal_buttons.dart';
 import 'package:ashutosh21rdfpp/widgets/intensity_slider.dart';
 import 'package:ashutosh21rdfpp/widgets/scense.dart';
@@ -53,6 +53,7 @@ class BedroomScreen extends StatelessWidget {
             ),
           ),
 
+          /// Bulb in lamp
           Positioned(
             right: 78.5.w,
             top: 140.h,
@@ -66,11 +67,11 @@ class BedroomScreen extends StatelessWidget {
                   height: 27.h,
                   width: 27.w,
                   decoration: BoxDecoration(
-                    color: controller.userColor.value,
+                    color: controller.userSelectedLampColor.value,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: controller.userColor.value,
+                        color: controller.userSelectedLampColor.value,
                         blurRadius: 5.0,
                         spreadRadius: 2.0,
                       ),
@@ -81,6 +82,7 @@ class BedroomScreen extends StatelessWidget {
             ),
           ),
 
+          /// Lamp
           Positioned(
             right: 30.w,
             top: -55.h,
@@ -93,6 +95,7 @@ class BedroomScreen extends StatelessWidget {
             ),
           ),
 
+          /// List of buttons
           Positioned(
             top: 200.h,
             left: 20.w,
@@ -102,12 +105,16 @@ class BedroomScreen extends StatelessWidget {
               fadeIn: true,
               fadingDuration: const Duration(seconds: 1),
               child: HorizontalButtons(
+                buttonNames: controller.lightName,
+                lightIcons: controller.lightIconsLight,
+                darkIcons: controller.lightIconsDark,
                 onClick: (index) {},
                 activeIndex: 1,
               ),
             ),
           ),
 
+          /// Header
           Positioned(
             top: 70.h,
             child: SizedBox(
@@ -162,6 +169,7 @@ class BedroomScreen extends StatelessWidget {
             ),
           ),
 
+          /// white cornered background for animation
           Positioned(
             top: 250.h,
             child: TranslationAnimatedWidget.tween(
@@ -183,6 +191,7 @@ class BedroomScreen extends StatelessWidget {
             ),
           ),
 
+          /// main containt
           Positioned(
             top: 250.h,
             child: Container(
@@ -234,6 +243,7 @@ class BedroomScreen extends StatelessWidget {
             ),
           ),
 
+          /// Power off button
           Positioned(
             top: 258.h,
             right: 20.w,
